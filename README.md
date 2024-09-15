@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on Atrem Project<br>🌱 I’m currently learning Vue JS, React JS and Typescript<br>💬 Ask me about KPOP, Kdrama, Anime<br>⚡ Fun fact, I'm Alive
+🔭 I’m currently working on Atrem Project<br>🌱 I’m currently learning Nuxt JS and Next JS<br>💬 Ask me about KPOP, Kdrama, Anime<br>⚡ Fun fact, I'm Alive
 
 
 ## 🌐 Socials:
