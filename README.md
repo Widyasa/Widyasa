@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on Atrem Project<br>🌱 I’m currently learning Fullstack dev
+🔭 I’m currently working on freelance project<br>🌱 I’m currently learning Fullstack dev
 
 
 ## 🌐 Socials:
