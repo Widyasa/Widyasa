@@ -34,7 +34,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 FONT_DIR = ROOT / "scripts" / "fonts"
 OUT = ROOT / "assets"
-VERSION = "2"
+VERSION = "3"
 
 PORTFOLIO = "https://widya-yasa.vercel.app"
 GITHUB = "https://github.com/widyasa"
@@ -70,6 +70,7 @@ LIGHT = dict(
     kind_teal="#0f766e",
     kind_sky="#1d4ed8",
     kind_violet="#5b21b6",
+    kind_rust="#9a3412",
     icon_soft="#f3ecdc",
     marquee_bg="#1c1730",
     marquee_ink="#f6f1e6",
@@ -100,6 +101,7 @@ DARK = dict(
     kind_teal="#5eead4",
     kind_sky="#93c5fd",
     kind_violet="#d6bcfa",
+    kind_rust="#fdba74",
     icon_soft="#0c1322",
     marquee_bg="#090d18",
     marquee_ink="#f0c14a",
@@ -109,22 +111,26 @@ DARK = dict(
 THEMES = (LIGHT, DARK)
 
 RAIL = {
-    "velnara": "#0f766e",
+    "patchsense": "#9a3412",
     "akumampu": "#1d4ed8",
     "midnight": "#4c1d95",
 }
-KIND_KEY = {"velnara": "kind_teal", "akumampu": "kind_sky", "midnight": "kind_violet"}
+KIND_KEY = {"patchsense": "kind_rust", "akumampu": "kind_sky", "midnight": "kind_violet"}
 
 # ───────────────────────────── copy (from the existing README only) ─────────────────────────────
 
 PROJECTS = [
     dict(
-        slug="velnara",
+        slug="patchsense",
         num="01",
-        title="Velnara Creative",
-        kind="Web · Studio Site",
-        desc="Creative digital studio site for startups & SMEs —\nbrand, social, company profiles, e-commerce",
-        art="studio",
+        title="PatchSense",
+        kind="Rust · CLI · Security · Open Source",
+        status="In development",
+        desc="Ranks CVEs into Critical, Review, and Defer · MCP server.\n"
+             "npm, pip, Composer, Go, Homebrew, Docker, and cargo",
+        art="cli",
+        href=PATCHSENSE,
+        cta="GITHUB",
     ),
     dict(
         slug="akumampu",
@@ -133,6 +139,8 @@ PROJECTS = [
         kind="Web · LMS",
         desc="Disability-friendly AI training with sign-language\n& screen-reader support across Indonesia",
         art="learn",
+        href=PORTFOLIO,
+        cta="PORTFOLIO",
     ),
     dict(
         slug="midnight",
@@ -141,6 +149,8 @@ PROJECTS = [
         kind="Game · Horror",
         desc="FNAF-style night-guard horror — CCTV, flash, fear bar · Gimersia 2025",
         art="night",
+        href=PORTFOLIO,
+        cta="PORTFOLIO",
     ),
 ]
 
@@ -385,17 +395,20 @@ def wrap(text: str, font: str, size: float, max_w: float) -> list[str]:
 
 # ───────────────────────────── icons ─────────────────────────────
 
-def icon_studio(t) -> str:
-    ink, soft, teal, amber, sky = t["ink"], t["icon_soft"], t["kind_teal"], t["amber"], t["sky"]
+def icon_cli(t) -> str:
+    """Terminal with a shield badge — a CLI, not a brand mark."""
+    ink, soft, rust = t["ink"], t["icon_soft"], t["kind_rust"]
     return f'''<g>
-      <rect x="8" y="22" width="128" height="86" rx="8" fill="{soft}" stroke="{ink}" stroke-width="2"/>
-      <path d="M8 42 H136" stroke="{ink}" stroke-width="2"/>
-      <circle cx="24" cy="32" r="4" fill="{t["green"]}"/>
-      <circle cx="38" cy="32" r="4" fill="{amber}"/>
-      <circle cx="52" cy="32" r="4" fill="{sky}"/>
-      <rect x="20" y="54" width="46" height="40" rx="4" fill="{teal}" opacity="0.18" stroke="{teal}" stroke-width="1.6"/>
-      <path d="M78 60 H124 M78 74 H112 M78 88 H100" stroke="{t["muted"]}" stroke-width="2.2" stroke-linecap="round"/>
-      {diamond(124, 16, 8, amber)}
+      <rect x="0" y="34" width="112" height="74" rx="8" fill="{soft}" stroke="{ink}" stroke-width="2"/>
+      <path d="M0 52 H112" stroke="{ink}" stroke-width="2"/>
+      <circle cx="16" cy="43" r="3.4" fill="{t["green"]}"/>
+      <circle cx="28" cy="43" r="3.4" fill="{t["amber"]}"/>
+      <circle cx="40" cy="43" r="3.4" fill="{t["sky"]}"/>
+      <path d="M16 68 l10 8 l-10 8" fill="none" stroke="{rust}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M38 88 H72" stroke="{t["muted"]}" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M96 14 l16 7 v20 c0 14 -16 22 -16 22 s-16 -8 -16 -22 V21 Z" fill="{t["panel"]}" stroke="{rust}" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M96 32 v10" stroke="{rust}" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="96" cy="48" r="1.7" fill="{rust}"/>
     </g>'''
 
 
@@ -471,104 +484,215 @@ def icon_bowl(cx, cy, color) -> str:
     )
 
 
-ART = {"studio": icon_studio, "learn": icon_learn, "night": icon_night}
+ART = {"cli": icon_cli, "learn": icon_learn, "night": icon_night}
 
 
 # ───────────────────────────── header ─────────────────────────────
 
 HEADER_ALT = (
     "Player card for Widya Yasa, Full-Stack Developer and Game Developer, "
-    "based in Bali, Indonesia. Open to freelance and full-time. "
+    "based in Bali, Indonesia. Rank P1. Open to freelance and full-time. "
     "Mission: ship features, share knowledge, enjoy the journey. "
+    "Focus: frontend, backend, systems, and open source. "
     "Traits: fast, intentional, and easy to use. Opens the portfolio."
 )
 
+# Equal spokes on purpose: the chart names focus areas, it does not score them.
+FOCUS = ("FRONTEND", "BACKEND", "SYSTEMS", "OSS")
+
+
+def _ring_points(cx: float, cy: float, r: float) -> list[tuple[float, float]]:
+    return [
+        (cx + r * math.cos(ang), cy + r * math.sin(ang))
+        for ang in (-math.pi / 2, 0, math.pi / 2, math.pi)
+    ]
+
 
 def build_header(t: dict) -> None:
-    W, H = 1200, 540
+    W, H = 1200, 648
     s = Svg(W, H, "Widya Yasa — player card", HEADER_ALT)
     s.css.append(MOTION)
     s.css.append(
-        ".scan{animation:scan 4.4s linear infinite}"
+        ".scan{animation:scan 5.2s linear infinite}"
         "@keyframes scan{0%{transform:translateY(0);opacity:0}"
-        "10%{opacity:.9}78%{opacity:.45}100%{transform:translateY(248px);opacity:0}}"
+        "8%{opacity:.85}72%{opacity:.3}100%{transform:translateY(200px);opacity:0}}"
+        ".ring{stroke-dasharray:18 14;animation:march 18s linear infinite}"
+        "@keyframes march{to{stroke-dashoffset:-420}}"
+    )
+    glow = t["teal"] if t["id"] == "dark" else t["gold_shape"]
+    glow_core = "0.42" if t["id"] == "dark" else "0.20"
+    s.defs.append(
+        f'<linearGradient id="holo" x1="0" y1="0" x2="1" y2="1">'
+        f'<stop offset="0" stop-color="{t["teal"]}"/>'
+        f'<stop offset="0.5" stop-color="{t["gold_shape"]}"/>'
+        f'<stop offset="1" stop-color="{t["sky"]}"/>'
+        f'</linearGradient>'
+        f'<radialGradient id="glow" cx="50%" cy="50%" r="50%">'
+        f'<stop offset="0" stop-color="{glow}" stop-opacity="{glow_core}"/>'
+        f'<stop offset="0.62" stop-color="{glow}" stop-opacity="0.08"/>'
+        f'<stop offset="1" stop-color="{glow}" stop-opacity="0"/>'
+        f'</radialGradient>'
+        f'<pattern id="grid" width="14" height="14" patternUnits="userSpaceOnUse">'
+        f'<path d="M14 0 H0 V14" fill="none" stroke="#f6d56a" stroke-width="0.7" opacity="0.28"/>'
+        f'</pattern>'
     )
     s.add(f'<rect width="{W}" height="{H}" fill="{t["field"]}"/>')
-    s.add(f'<rect width="{W}" height="4" fill="{t["gold_shape"]}"/>')
+    s.add(f'<rect width="{W}" height="4" fill="url(#holo)"/>')
 
-    x, y, w, h, c = 22, 16, 1156, 508, 18
+    x, y, w, h, c = 18, 16, 1164, 616, 18
+    s.defs.append(f'<clipPath id="card"><path d="{notch_d(x, y, w, h, c)}"/></clipPath>')
     s.add(notch(x, y, w, h, c, t["panel"], t["stroke"], 1.75))
+    # Slim gradient rail, clipped so it follows the notched corner.
+    s.add(
+        f'<rect x="{x}" y="{y}" width="9" height="{h}" fill="url(#holo)" clip-path="url(#card)"/>'
+    )
     s.add(notch(x + 8, y + 8, w - 16, h - 16, 12, "none", t["stroke_soft"], 1))
-    s.add(brackets(x + 14, y + 14, w - 28, h - 28, 16, t["gold_shape"], 2))
+    s.add(brackets(x + 16, y + 16, w - 32, h - 32, 18, t["gold_shape"], 2))
 
     # HUD
-    hud_top, hud_h = 28, 46
-    s.add(diamond(52, hud_top + hud_h / 2, 6, t["gold_shape"]))
-    s.add(s.text(68, FONTS["mono"].baseline(hud_top, hud_h, 15), "PLAYER_PROFILE", "mono", 15, t["muted"]))
-    s.add(s.text(
-        68 + tw("PLAYER_PROFILE", "mono", 15) + 18,
-        FONTS["mono"].baseline(hud_top, hud_h, 15),
-        "BALI, ID", "mono", 15, t["gold"],
-    ))
+    hud_top, hud_h = 30, 44
+    s.add(diamond(56, hud_top + hud_h / 2, 6, t["gold_shape"]))
+    s.add(s.text(74, FONTS["mono"].baseline(hud_top, hud_h, 14), "PLAYER_PROFILE", "mono", 14, t["muted"]))
+    bali_x = 74 + tw("PLAYER_PROFILE", "mono", 14) + 16
+    s.add(s.text(bali_x, FONTS["mono"].baseline(hud_top, hud_h, 14), "BALI, ID", "mono", 14, t["gold"]))
 
-    pill_w, pill_h = 92, 30
-    pill_x, pill_y = W - 22 - 28 - pill_w, hud_top + (hud_h - pill_h) / 2
+    pill_w, pill_h = 96, 32
+    pill_x = x + w - 28 - pill_w
+    pill_y = hud_top + (hud_h - pill_h) / 2
+    rank_w, rank_h = 118, 32
+    rank_x = pill_x - 12 - rank_w
+    rank_y = pill_y
+    if bali_x + tw("BALI, ID", "mono", 14) + 16 > rank_x:
+        raise SystemExit("HUD labels collide with the rank badge")
+    s.add(notch(rank_x, rank_y, rank_w, rank_h, 8, t["band"], t["gold_shape"], 1.4))
+    s.add(s.text(rank_x + 14, FONTS["mono"].baseline(rank_y, rank_h, 12), "RANK", "mono", 12, t["gold"]))
+    s.add(s.text(
+        rank_x + rank_w - 16, FONTS["display"].baseline(rank_y, rank_h, 18),
+        "P1", "display", 18, t["ink"], anchor="end",
+    ))
     s.add(notch(pill_x, pill_y, pill_w, pill_h, 8, t["pill"]))
-    s.add(f'<circle cx="{pill_x + 18}" cy="{pill_y + pill_h / 2}" r="4.5" fill="{t["dot"]}" class="pulse"/>')
-    s.add(s.text(
-        pill_x + 30, FONTS["mono"].baseline(pill_y, pill_h, 13),
-        "OPEN", "mono", 13, t["pill_ink"],
-    ))
+    s.add(f'<circle cx="{pill_x + 20}" cy="{pill_y + pill_h / 2}" r="4.5" fill="{t["dot"]}" class="pulse"/>')
+    s.add(s.text(pill_x + 32, FONTS["mono"].baseline(pill_y, pill_h, 13), "OPEN", "mono", 13, t["pill_ink"]))
 
-    s.add(f'<path d="M48 {y + 78} H{x + w - 26}" stroke="{t["stroke_soft"]}" stroke-width="1.25"/>')
+    rule_y = y + 68
+    s.add(f'<path d="M48 {rule_y} H{x + w - 28}" stroke="{t["stroke_soft"]}" stroke-width="1.25"/>')
 
-    # Display bezel
-    bx, by, bw, bh = 48, 108, 236, 300
-    s.add(notch(bx, by, bw, bh, 14, t["screen"]))
-    s.add(brackets(bx + 12, by + 12, bw - 24, bh - 24, 14, t["gold_shape"], 1.6))
-    s.defs.append(f'<clipPath id="screen"><rect x="{bx + 10}" y="{by + 10}" width="{bw - 20}" height="{bh - 20}"/></clipPath>')
+    # Holographic emblem
+    ecx, ecy, er = 188, 292, 112
+    s.add(f'<circle cx="{ecx}" cy="{ecy}" r="{er + 46}" fill="url(#glow)"/>')
     s.add(
-        f'<g clip-path="url(#screen)"><rect class="scan" x="{bx + 16}" y="{by + 18}" '
-        f'width="{bw - 32}" height="2" fill="#f6d56a" opacity="0"/></g>'
+        f'<circle class="ring" cx="{ecx}" cy="{ecy}" r="{er + 14}" fill="none" '
+        f'stroke="url(#holo)" stroke-width="2.4"/>'
     )
-    scx = bx + bw / 2
-    s.add(s.text(scx, by + 118, "PLAYER", "mono", 13, "#9be7da", anchor="middle"))
-    s.add(s.text(scx, by + 186, "WY", "display", 68, "#f6d56a", anchor="middle"))
-    cursor_x = scx + tw("WY", "display", 68) / 2 + 8
-    s.add(f'<rect class="blink" x="{cursor_x:.1f}" y="{by + 142}" width="4" height="46" fill="#f6d56a"/>')
-    s.add(s.text(scx, by + 248, "P1", "mono", 16, "#9be7da", anchor="middle"))
+    s.add(
+        f'<circle cx="{ecx}" cy="{ecy}" r="{er + 4}" fill="none" stroke="{t["gold_shape"]}" '
+        f'stroke-width="1.25" opacity="0.85"/>'
+    )
+    for i in range(8):
+        ang = math.pi / 4 * i
+        inner = er + 24
+        outer = er + (34 if i % 2 == 0 else 28)
+        x1, y1 = ecx + inner * math.cos(ang), ecy + inner * math.sin(ang)
+        x2, y2 = ecx + outer * math.cos(ang), ecy + outer * math.sin(ang)
+        s.add(
+            f'<path d="M{x1:.1f} {y1:.1f} L{x2:.1f} {y2:.1f}" stroke="{t["gold_shape"]}" '
+            f'stroke-width="1.6" stroke-linecap="square"/>'
+        )
+    s.add(f'<circle cx="{ecx}" cy="{ecy}" r="{er}" fill="{t["screen"]}"/>')
+    s.defs.append(f'<clipPath id="screen"><circle cx="{ecx}" cy="{ecy}" r="{er - 1}"/></clipPath>')
+    s.add(f'<circle cx="{ecx}" cy="{ecy}" r="{er - 1}" fill="url(#grid)" clip-path="url(#screen)"/>')
+    s.add(
+        f'<g clip-path="url(#screen)"><rect class="scan" x="{ecx - er + 8}" y="{ecy - er + 8}" '
+        f'width="{er * 2 - 16}" height="2" fill="#f6d56a" opacity="0"/></g>'
+    )
+    s.add(s.text(ecx, ecy - 36, "PLAYER", "mono", 13, "#9be7da", anchor="middle"))
+    s.add(s.text(ecx, ecy + 24, "WY", "display", 64, "#f6d56a", anchor="middle"))
+    cursor_x = ecx + tw("WY", "display", 64) / 2 + 8
+    s.add(f'<rect class="blink" x="{cursor_x:.1f}" y="{ecy - 22}" width="4" height="42" fill="#f6d56a"/>')
+    s.add(s.text(ecx, ecy + 58, "P1", "mono", 15, "#9be7da", anchor="middle"))
 
-    # Identity
-    tx = 316
-    s.add(s.text(tx, 148, "FULL-STACK × GAME DEV", "disp", 20, t["teal"]))
-    s.add(s.text(tx, 214, "Widya Yasa", "display", 64, t["ink"]))
-    name_w = tw("Widya Yasa", "display", 64)
-    if name_w > 780:
-        raise SystemExit("Name does not fit the player card")
+    # Identity sits clear of the emblem and of the focus chart.
+    tx = 360
+    radar_r = 54
+    radar_cx = 1016
+    radar_cy = 168
+    name_size = 58
+    name_w = tw("Widya Yasa", "display", name_size)
+    if tx + name_w + 28 > radar_cx - radar_r - tw("OSS", "mono", 12) - 10:
+        raise SystemExit("Name collides with the focus chart")
+    eyebrow = "FULL-STACK × GAME DEV"
+    s.add(s.text(tx, 156, eyebrow, "disp", 18, t["teal"]))
+    if tx + tw(eyebrow, "disp", 18) > radar_cx - radar_r - 36:
+        raise SystemExit("Eyebrow collides with the focus chart")
+    s.add(s.text(tx, 222, "Widya Yasa", "display", name_size, t["ink"]))
+    s.add(f'<path d="M{tx} 242 H{tx + 168}" stroke="url(#holo)" stroke-width="3" stroke-linecap="square"/>')
 
-    row_y, row_h = 246, 40
+    # Focus chart — four equal axes, labels only, no scores.
+    axes = _ring_points(radar_cx, radar_cy, radar_r)
+    web = " ".join(f"{px:.1f},{py:.1f}" for px, py in axes)
+    inner = " ".join(f"{px:.1f},{py:.1f}" for px, py in _ring_points(radar_cx, radar_cy, radar_r * 0.55))
+    s.add(f'<polygon points="{web}" fill="{t["band"]}" stroke="{t["stroke_soft"]}" stroke-width="1.25"/>')
+    s.add(f'<polygon points="{inner}" fill="none" stroke="{t["stroke_soft"]}" stroke-width="1"/>')
+    for px, py in axes:
+        s.add(
+            f'<path d="M{radar_cx} {radar_cy} L{px:.1f} {py:.1f}" stroke="{t["stroke_soft"]}" stroke-width="1"/>'
+        )
+    s.add(f'<polygon points="{web}" fill="url(#holo)" opacity="0.28" stroke="{t["gold_shape"]}" stroke-width="1.6"/>')
+    for px, py in axes:
+        s.add(diamond(px, py, 3.5, t["gold_shape"]))
+    s.add(f'<circle cx="{radar_cx}" cy="{radar_cy}" r="3" fill="{t["ink"]}"/>')
+    label_fill = t["gold"]
+    top, right, bottom, left = FOCUS
+    s.add(s.text(radar_cx, radar_cy - radar_r - 8, top, "mono", 12, label_fill, anchor="middle"))
+    s.add(s.text(radar_cx + radar_r + 10, radar_cy + 4, right, "mono", 12, label_fill))
+    s.add(s.text(radar_cx, radar_cy + radar_r + 16, bottom, "mono", 12, label_fill, anchor="middle"))
+    s.add(s.text(radar_cx - radar_r - 10, radar_cy + 4, left, "mono", 12, label_fill, anchor="end"))
+    right_edge = radar_cx + radar_r + 8 + tw(right, "mono", 12)
+    if right_edge > x + w - 24:
+        raise SystemExit("Focus label runs off the player card")
+    if radar_cy - radar_r - 10 < rule_y + 8:
+        raise SystemExit("Focus label collides with the HUD rule")
+
+    row_y, row_h = 268, 38
+    value_x = tx + 124
+    value_max = x + w - 40 - value_x
     for label, value in STATS:
-        if tw(value, "sans", 18) > 700:
+        if tw(value, "sans", 17) > value_max:
             raise SystemExit(f"Stat value too wide: {value}")
-        s.add(f'<path d="M{tx} {row_y + row_h} H{x + w - 40}" stroke="{t["stroke_soft"]}" stroke-width="1"/>')
-        s.add(s.text(tx, FONTS["mono"].baseline(row_y, row_h, 13), label, "mono", 13, t["gold"]))
-        s.add(s.text(tx + 118, FONTS["sans"].baseline(row_y, row_h, 18), value, "sans", 18, t["ink"]))
+        s.add(f'<path d="M{tx} {row_y + row_h - 2} H{x + w - 36}" stroke="{t["stroke_soft"]}" stroke-width="1"/>')
+        s.add(f'<rect x="{tx}" y="{row_y + 11}" width="3" height="16" fill="{t["gold_shape"]}"/>')
+        s.add(s.text(tx + 14, FONTS["mono"].baseline(row_y, row_h, 13), label, "mono", 13, t["gold"]))
+        s.add(s.text(value_x, FONTS["sans"].baseline(row_y, row_h, 17), value, "sans", 17, t["ink"]))
         row_y += row_h
 
-    # Trait plates — the three words from "fast, intentional, and easy to use"
-    plates_y, plates_h = 428, 76
+    # Availability bar — full, because the status above is "open". No fake XP number.
+    bar_y = row_y + 36
+    bar_x, bar_w, bar_h = tx, x + w - 36 - tx, 8
+    s.add(s.text(bar_x, FONTS["mono"].baseline(bar_y - 24, 20, 12), "SIGNAL", "mono", 12, t["gold"]))
+    s.add(s.text(bar_x + bar_w, FONTS["mono"].baseline(bar_y - 24, 20, 12), "OPEN", "mono", 12, t["ink"], anchor="end"))
+    s.add(f'<rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="2" fill="{t["stroke_soft"]}"/>')
+    s.add(f'<rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="2" fill="url(#holo)"/>')
+    for i in range(1, 8):
+        tick = bar_x + bar_w * i / 8
+        s.add(f'<path d="M{tick:.1f} {bar_y} V{bar_y + bar_h}" stroke="{t["panel"]}" stroke-width="1.5"/>')
+
+    plates_y, plates_h = 536, 72
     gap = 14
-    inner_left, inner_right = 48, x + w - 26
+    inner_left, inner_right = 48, x + w - 28
     pw = (inner_right - inner_left - gap * 2) / 3
+    if plates_y < bar_y + bar_h + 18:
+        raise SystemExit("Trait plates collide with the signal bar")
     for i, (word, color_key) in enumerate(TRAITS):
         px = inner_left + i * (pw + gap)
-        s.add(notch(px, plates_y, pw, plates_h, 10, t["band"], t["stroke_soft"], 1))
         mark = t[color_key]
-        s.add(diamond(px + 28, plates_y + plates_h / 2, 6, mark))
+        s.add(notch(px, plates_y, pw, plates_h, 10, t["band"], t["stroke_soft"], 1))
+        s.add(f'<rect x="{px + 16}" y="{plates_y + 16}" width="28" height="4" rx="1" fill="{mark}"/>')
         s.add(s.text(
-            px + pw / 2 + 8, FONTS["display"].baseline(plates_y, plates_h, 18),
-            word, "display", 18, t["ink"], anchor="middle",
+            px + 16, FONTS["display"].baseline(plates_y + 22, plates_h - 30, 20),
+            word, "display", 20, t["ink"],
         ))
+        if tw(word, "display", 20) > pw - 32:
+            raise SystemExit(f"Trait plate too narrow for {word}")
 
     s.render(OUT / f"header-{t['id']}.svg")
 
@@ -647,7 +771,9 @@ def build_section(t: dict, key: str, title: str, subtitle: str) -> None:
 
 def project_alt(p: dict) -> str:
     desc = " ".join(p["desc"].split())
-    return f"Stage {p['num']} — {p['title']}. {p['kind']}. {desc}. Opens the portfolio."
+    status = f" Status: {p['status']}." if p.get("status") else ""
+    where = "Opens the GitHub repository." if "github.com" in p["href"] else "Opens the portfolio."
+    return f"Stage {p['num']} — {p['title']}. {p['kind']}.{status} {desc}. {where}"
 
 
 def build_project(t: dict, p: dict) -> None:
@@ -664,18 +790,36 @@ def build_project(t: dict, p: dict) -> None:
     s.add(s.text(rcx, 146, p["num"], "display", 44, "#fffaf2", anchor="middle"))
 
     tx = x + rail + 32
-    s.add(s.text(tx, 72, p["title"], "display", 34, t["ink"]))
-    if tw(p["title"], "display", 34) > 760:
+    title_size = 34
+    s.add(s.text(tx, 72, p["title"], "display", title_size, t["ink"]))
+    title_w = tw(p["title"], "display", title_size)
+    if title_w > 640:
         raise SystemExit(f"Title too wide: {p['title']}")
+    if p.get("status"):
+        label = p["status"].upper()
+        chip_w = tw(label, "mono", 13) + 28
+        chip_h = 28
+        chip_x = tx + title_w + 16
+        chip_y = 48
+        if chip_x + chip_w > 990:
+            raise SystemExit(f"Status chip collides with the stage art: {p['title']}")
+        s.add(notch(chip_x, chip_y, chip_w, chip_h, 7, t["band"], t["gold_shape"], 1.25))
+        s.add(s.text(
+            chip_x + 14, FONTS["mono"].baseline(chip_y, chip_h, 13),
+            label, "mono", 13, t["ink"],
+        ))
     s.add(s.text(tx, 106, p["kind"], "mono", 16, t[KIND_KEY[p["slug"]]]))
-    lines = lines_of(p["desc"], "sans", 18, 760)
+    if tw(p["kind"], "mono", 16) > 820:
+        raise SystemExit(f"Kind line too wide: {p['kind']}")
+    lines = lines_of(p["desc"], "sans", 18, 820)
     if len(lines) > 2:
         raise SystemExit(f"Description needs more than 2 lines: {p['title']} -> {lines}")
     for i, line in enumerate(lines):
         s.add(s.text(tx, 146 + i * 28, line, "sans", 18, t["muted"]))
+    cta = p.get("cta", "PORTFOLIO")
     cta_y = 214
-    s.add(s.text(tx, cta_y, "PORTFOLIO", "mono", 15, t["ink"]))
-    arrow_x = tx + tw("PORTFOLIO", "mono", 15) + 12
+    s.add(s.text(tx, cta_y, cta, "mono", 15, t["ink"]))
+    arrow_x = tx + tw(cta, "mono", 15) + 12
     s.add(
         f'<g class="nudge"><path d="M{arrow_x:.1f} {cta_y - 5} h16 M{arrow_x + 8:.1f} {cta_y - 12} '
         f'l8 7 l-8 7" fill="none" stroke="{t["gold_shape"]}" stroke-width="2.2" '
@@ -839,7 +983,7 @@ def picture(name: str, alt: str, href: str | None = None) -> str:
 
 def build_readme() -> None:
     projects = "\n\n".join(
-        f'<p align="center">\n{picture(f"project-{p["slug"]}", project_alt(p), PORTFOLIO)}\n</p>'
+        f'<p align="center">\n{picture(f"project-{p["slug"]}", project_alt(p), p["href"])}\n</p>'
         for p in PROJECTS
     )
     sections = {key: picture(f"section-{key}", alt) for key, _title, _sub in SECTIONS
@@ -964,6 +1108,7 @@ def assert_contrast() -> None:
             (t["kind_teal"], t["panel"], f"{t['id']} kind teal"),
             (t["kind_sky"], t["panel"], f"{t['id']} kind sky"),
             (t["kind_violet"], t["panel"], f"{t['id']} kind violet"),
+            (t["kind_rust"], t["panel"], f"{t['id']} kind rust"),
             (t["marquee_ink"], t["marquee_bg"], f"{t['id']} marquee"),
             ("#f6d56a", t["screen"], f"{t['id']} monogram"),
             ("#9be7da", t["screen"], f"{t['id']} screen label"),
@@ -1003,11 +1148,15 @@ def main() -> None:
     if before != after:
         raise SystemExit("Pac-Man SVGs were modified; the generator must not touch them.")
     text = (ROOT / "README.md").read_text(encoding="utf-8")
-    for needle in ("Stage 01", "Stage 02", "Stage 03", "Velnara Creative", "Aku Mampu AI", "Midnight Toys", PORTFOLIO, LINKEDIN, INSTAGRAM, GITHUB):
+    for needle in (
+        "Stage 01", "Stage 02", "Stage 03", "PatchSense", "Aku Mampu AI", "Midnight Toys",
+        PATCHSENSE, "In development", "Critical, Review, and Defer",
+        PORTFOLIO, LINKEDIN, INSTAGRAM, GITHUB,
+    ):
         if needle not in text:
             raise SystemExit(f"README is missing {needle!r}")
-    if "Stage 04" in text:
-        raise SystemExit("Old stage number 04 is still in the README")
+    if "Stage 04" in text or "Velnara" in text:
+        raise SystemExit("Retired stage copy is still in the README")
     print("Done.")
 
 
