@@ -34,12 +34,13 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 FONT_DIR = ROOT / "scripts" / "fonts"
 OUT = ROOT / "assets"
-VERSION = "1"
+VERSION = "2"
 
 PORTFOLIO = "https://widya-yasa.vercel.app"
 GITHUB = "https://github.com/widyasa"
 LINKEDIN = "https://linkedin.com/in/widya-yasa"
 INSTAGRAM = "https://instagram.com/widya_yasaa"
+PATCHSENSE = "https://github.com/Widyasa/patchsense"
 
 # ───────────────────────────── themes ─────────────────────────────
 # Light is a printed quest log. Dark is the same UI as a night HUD.
@@ -150,7 +151,7 @@ INVENTORY = [
     ]),
     ("BACKEND", "amber", [
         "PHP", "Laravel", "Inertia", "Node.js", "Express.js", "Supabase",
-        "Prisma", "PostgreSQL", "MySQL",
+        "Prisma", "PostgreSQL", "MySQL", "Rust", "Go",
     ]),
     ("GAME DEV", "sky", ["Unity", "C#", "C"]),
 ]
@@ -160,6 +161,7 @@ QUESTS = [
     ("GAMING", "Roguelikes & online games", "dpad", "green"),
     ("EXPLORING", "New places around\nBali & beyond", "compass", "sky"),
     ("FOOD", "New restaurants, or\ncooking at home", "bowl", "kind_violet"),
+    ("OPEN SOURCE", "Building\nPatchSense", "branch", "teal"),
 ]
 
 SECTIONS = [
@@ -167,7 +169,7 @@ SECTIONS = [
     ("stages", "FEATURED_STAGES", "featured builds"),
     ("inventory", "INVENTORY", "frontend · backend · game dev"),
     ("contrib", "CONTRIBUTION_GAME", "pac-man"),
-    ("quests", "SIDE_QUESTS", "anime · games · exploring · food"),
+    ("quests", "SIDE_QUESTS", "anime · games · exploring · food · oss"),
 ]
 
 MARQUEE = [
@@ -445,6 +447,18 @@ def icon_compass(cx, cy, color, needle) -> str:
         f'<circle cx="{cx}" cy="{cy}" r="13" fill="none" stroke="{color}" stroke-width="2"/>'
         f'<path d="M{cx} {cy - 9} L{cx + 4} {cy + 6} L{cx} {cy + 3} L{cx - 4} {cy + 6} Z" fill="{needle}"/>'
         f'<circle cx="{cx}" cy="{cy}" r="1.8" fill="{color}"/>'
+    )
+
+
+def icon_branch(cx, cy, color) -> str:
+    """Git branch, same stroke weight as the other side-quest marks."""
+    lx = cx - 6
+    return (
+        f'<circle cx="{lx}" cy="{cy - 8}" r="3.2" fill="none" stroke="{color}" stroke-width="2"/>'
+        f'<circle cx="{lx}" cy="{cy + 8}" r="3.2" fill="none" stroke="{color}" stroke-width="2"/>'
+        f'<circle cx="{lx + 12}" cy="{cy - 8}" r="3.2" fill="none" stroke="{color}" stroke-width="2"/>'
+        f'<path d="M{lx} {cy - 4.8} V{cy + 4.8} M{lx} {cy - 1} C{lx} {cy - 8} {lx + 12} {cy - 8} {lx + 12} {cy - 4.8}" '
+        f'fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round"/>'
     )
 
 
@@ -762,6 +776,8 @@ def build_sidequests(t: dict) -> None:
             s.add(icon_dpad(icx, icy, color))
         elif art == "compass":
             s.add(icon_compass(icx, icy, color, t["gold_shape"]))
+        elif art == "branch":
+            s.add(icon_branch(icx, icy, color))
         else:
             s.add(icon_bowl(icx, icy, color))
         s.add(s.text(icx, y + 92, name, "mono", 13, t["gold"], anchor="middle"))
@@ -868,6 +884,8 @@ I build web apps and game experiences that feel **fast**, **intentional**, and *
 Currently taking freelance projects and open to full-time opportunities.
 
 I'm someone who genuinely enjoys learning new things and sharing them with others — casual chats, sharing sessions, mentoring. I stay active in tech communities because the best way to grow is to be around people who are just as excited to learn.
+
+I love open source — currently building [PatchSense]({PATCHSENSE}), a Rust CLI for CVE triage.
 
 {sections["stages"]}
 
