@@ -34,7 +34,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 FONT_DIR = ROOT / "scripts" / "fonts"
 OUT = ROOT / "assets"
-VERSION = "3"
+VERSION = "4"
 
 PORTFOLIO = "https://widya-yasa.vercel.app"
 GITHUB = "https://github.com/widyasa"
@@ -193,7 +193,7 @@ MARQUEE = [
 TRAITS = [("FAST", "green"), ("INTENTIONAL", "amber"), ("EASY TO USE", "sky")]
 
 STATS = [
-    ("CLASS", "Full-Stack Developer & Game Developer"),
+    ("CLASS", "Software Engineer"),
     ("BASE", "Bali, Indonesia"),
     ("STATUS", "Open to freelance & full-time"),
     ("MISSION", "Ship features · share knowledge · enjoy the journey"),
@@ -490,7 +490,7 @@ ART = {"cli": icon_cli, "learn": icon_learn, "night": icon_night}
 # ───────────────────────────── header ─────────────────────────────
 
 HEADER_ALT = (
-    "Player card for Widya Yasa, Full-Stack Developer and Game Developer, "
+    "Player card for Widya Yasa, Software Engineer, "
     "based in Bali, Indonesia. Rank P1. Open to freelance and full-time. "
     "Mission: ship features, share knowledge, enjoy the journey. "
     "Focus: frontend, backend, systems, and open source. "
@@ -620,7 +620,7 @@ def build_header(t: dict) -> None:
     name_w = tw("Widya Yasa", "display", name_size)
     if tx + name_w + 28 > radar_cx - radar_r - tw("OSS", "mono", 12) - 10:
         raise SystemExit("Name collides with the focus chart")
-    eyebrow = "FULL-STACK × GAME DEV"
+    eyebrow = "SOFTWARE ENGINEER"
     s.add(s.text(tx, 156, eyebrow, "disp", 18, t["teal"]))
     if tx + tw(eyebrow, "disp", 18) > radar_cx - radar_r - 36:
         raise SystemExit("Eyebrow collides with the focus chart")
@@ -1024,7 +1024,7 @@ def build_readme() -> None:
 
 {sections["profile"]}
 
-I build web apps and game experiences that feel **fast**, **intentional**, and **easy to use**.
+I build software that feels **fast**, **intentional**, and **easy to use**.
 Currently taking freelance projects and open to full-time opportunities.
 
 I'm someone who genuinely enjoys learning new things and sharing them with others — casual chats, sharing sessions, mentoring. I stay active in tech communities because the best way to grow is to be around people who are just as excited to learn.
