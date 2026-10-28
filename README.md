@@ -1,78 +1,106 @@
 <!--
   Widya Yasa — profile README
   Portfolio: https://widya-yasa.vercel.app
+  Regenerate cards: python3 scripts/build.py
+  Regenerate Pac-Man graph: scripts/generate-pacman.ps1
 -->
 
-<div align="center">
+<p align="center">
+<a href="https://widya-yasa.vercel.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/header-light.svg?v=1" />
+  <img alt="Player card for Widya Yasa, Full-Stack Developer and Game Developer, based in Bali, Indonesia. Open to freelance and full-time. Mission: ship features, share knowledge, enjoy the journey. Traits: fast, intentional, and easy to use. Opens the portfolio." src="./assets/header-light.svg?v=1" width="100%" />
+</picture>
+</a>
+</p>
 
-```
-██╗    ██╗██╗██████╗ ██╗   ██╗ █████╗ ██╗   ██╗ █████╗ ███████╗ █████╗ 
-██║    ██║██║██╔══██╗╚██╗ ██╔╝██╔══██╗╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗
-██║ █╗ ██║██║██║  ██║ ╚████╔╝ ███████║ ╚████╔╝ ███████║███████╗███████║
-██║███╗██║██║██║  ██║  ╚██╔╝  ██╔══██║  ╚██╔╝  ██╔══██║╚════██║██╔══██║
-╚███╔███╔╝██║██████╔╝   ██║   ██║  ██║   ██║   ██║  ██║███████║██║  ██║
- ╚══╝╚══╝ ╚═╝╚═════╝    ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-```
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/marquee-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/marquee-light.svg?v=1" />
+  <img alt="Ticker: ship features, share knowledge, enjoy the journey. Open to freelance and full-time. Bali, Indonesia." src="./assets/marquee-light.svg?v=1" width="100%" />
+</picture>
+</p>
 
-### FULL-STACK × GAME DEV
+<p align="center">
+  <a href="https://widya-yasa.vercel.app">Portfolio</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/widyasa">GitHub</a>
+  &nbsp;·&nbsp;
+  <a href="https://linkedin.com/in/widya-yasa">LinkedIn</a>
+  &nbsp;·&nbsp;
+  <a href="https://instagram.com/widya_yasaa">Instagram</a>
+</p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/section-profile-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/section-profile-light.svg?v=1" />
+  <img alt="Section: Player profile" src="./assets/section-profile-light.svg?v=1" width="100%" />
+</picture>
 
 I build web apps and game experiences that feel **fast**, **intentional**, and **easy to use**.  
 Currently taking freelance projects and open to full-time opportunities.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-widya--yasa.vercel.app-111?style=for-the-badge&labelColor=22c55e&color=0a0a0a)](https://widya-yasa.vercel.app)
-[![Status](https://img.shields.io/badge/STATUS-OPEN_TO_WORK-111?style=for-the-badge&labelColor=38bdf8&color=0a0a0a)](https://widya-yasa.vercel.app)
-[![Base](https://img.shields.io/badge/BASE-BALI,_ID-111?style=for-the-badge&labelColor=f59e0b&color=0a0a0a)](https://widya-yasa.vercel.app)
-
-<br/>
-
-[![GitHub](https://img.shields.io/badge/GitHub-widyasa-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/widyasa)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-widya--yasa-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/widya-yasa)
-[![Instagram](https://img.shields.io/badge/Instagram-@widya__yasaa-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/widya_yasaa)
-
-</div>
-
----
-
-### `// PLAYER_PROFILE`
-
-```txt
-NAME     : Widya Yasa
-CLASS    : Full-Stack Developer & Game Developer
-BASE     : Bali, Indonesia
-STATUS   : Open to freelance & full-time
-MISSION  : Ship features · share knowledge · enjoy the journey
-```
-
 I'm someone who genuinely enjoys learning new things and sharing them with others — casual chats, sharing sessions, mentoring. I stay active in tech communities because the best way to grow is to be around people who are just as excited to learn.
 
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/section-stages-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/section-stages-light.svg?v=1" />
+  <img alt="Section: Featured stages" src="./assets/section-stages-light.svg?v=1" width="100%" />
+</picture>
 
-### `// FEATURED_STAGES`
+<p align="center">
+<a href="https://widya-yasa.vercel.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/project-velnara-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/project-velnara-light.svg?v=1" />
+  <img alt="Stage 01 — Velnara Creative. Web · Studio Site. Creative digital studio site for startups &amp; SMEs — brand, social, company profiles, e-commerce. Opens the portfolio." src="./assets/project-velnara-light.svg?v=1" width="100%" />
+</picture>
+</a>
+</p>
 
-| # | Build | Type | What it is |
-|---|-------|------|------------|
-| 01 | **[Velnara Creative](https://widya-yasa.vercel.app)** | Web · Studio Site | Creative digital studio site for startups & SMEs — brand, social, company profiles, e-commerce |
-| 03 | **[Aku Mampu AI](https://widya-yasa.vercel.app)** | Web · LMS | Disability-friendly AI training with sign-language & screen-reader support across Indonesia |
-| 04 | **[Midnight Toys](https://widya-yasa.vercel.app)** | Game · Horror | FNAF-style night-guard horror — CCTV, flash, fear bar · Gimersia 2025 |
+<p align="center">
+<a href="https://widya-yasa.vercel.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/project-akumampu-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/project-akumampu-light.svg?v=1" />
+  <img alt="Stage 02 — Aku Mampu AI. Web · LMS. Disability-friendly AI training with sign-language &amp; screen-reader support across Indonesia. Opens the portfolio." src="./assets/project-akumampu-light.svg?v=1" width="100%" />
+</picture>
+</a>
+</p>
 
-→ more builds on the [portfolio](https://widya-yasa.vercel.app)
+<p align="center">
+<a href="https://widya-yasa.vercel.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/project-midnight-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/project-midnight-light.svg?v=1" />
+  <img alt="Stage 03 — Midnight Toys. Game · Horror. FNAF-style night-guard horror — CCTV, flash, fear bar · Gimersia 2025. Opens the portfolio." src="./assets/project-midnight-light.svg?v=1" width="100%" />
+</picture>
+</a>
+</p>
 
----
+<p>→ more builds on the <a href="https://widya-yasa.vercel.app">portfolio</a></p>
 
-### `// INVENTORY`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/section-inventory-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/section-inventory-light.svg?v=1" />
+  <img alt="Section: Inventory" src="./assets/section-inventory-light.svg?v=1" width="100%" />
+</picture>
 
-**Frontend**  
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)&nbsp;![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)&nbsp;![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)&nbsp;![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)&nbsp;![Vue](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)&nbsp;![Nuxt](https://img.shields.io/badge/Nuxt-00DC82?style=flat-square&logo=nuxt&logoColor=black)&nbsp;![Pinia](https://img.shields.io/badge/Pinia-FFD859?style=flat-square&logo=vuedotjs&logoColor=black)&nbsp;![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white)&nbsp;![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white)&nbsp;![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat-square&logo=shadcnui&logoColor=white)
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/inventory-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/inventory-light.svg?v=1" />
+  <img alt="Inventory. Frontend: TypeScript, JavaScript, React, Next.js, Vue.js, Nuxt, Pinia, Tailwind CSS, Bootstrap, shadcn/ui. Backend: PHP, Laravel, Inertia, Node.js, Express.js, Supabase, Prisma, PostgreSQL, MySQL. Game Dev: Unity, C#, C." src="./assets/inventory-light.svg?v=1" width="100%" />
+</picture>
+</p>
 
-**Backend**  
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)&nbsp;![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white)&nbsp;![Inertia](https://img.shields.io/badge/Inertia-9553E9?style=flat-square&logo=inertia&logoColor=white)&nbsp;![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)&nbsp;![Express](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white)&nbsp;![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=black)&nbsp;![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)&nbsp;![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)&nbsp;![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-
-**Game Dev**  
-![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)&nbsp;![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=csharp&logoColor=white)&nbsp;![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
-
----
-
-### `// CONTRIBUTION_GAME`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/section-contrib-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/section-contrib-light.svg?v=1" />
+  <img alt="Section: Contribution game" src="./assets/section-contrib-light.svg?v=1" width="100%" />
+</picture>
 
 <div align="center">
 
@@ -80,31 +108,41 @@ I'm someone who genuinely enjoys learning new things and sharing them with other
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/pacman-contribution-graph-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/pacman-contribution-graph.svg" />
-  <img alt="pacman contribution graph" src="./assets/pacman-contribution-graph.svg" />
+  <img alt="Pac-Man eating the GitHub contribution graph" src="./assets/pacman-contribution-graph.svg" width="100%" />
 </picture>
 
 </div>
 
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/section-quests-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/section-quests-light.svg?v=1" />
+  <img alt="Section: Side quests" src="./assets/section-quests-light.svg?v=1" width="100%" />
+</picture>
 
-### `// SIDE_QUESTS`
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/sidequests-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/sidequests-light.svg?v=1" />
+  <img alt="Side quests. Anime: Enchanted by Frieren. Gaming: Roguelikes &amp; online games. Exploring: New places around Bali &amp; beyond. Food: New restaurants, or cooking at home." src="./assets/sidequests-light.svg?v=1" width="100%" />
+</picture>
+</p>
 
-| Quest | Current loadout |
-|-------|-----------------|
-| Anime | Enchanted by *Frieren* |
-| Gaming | Roguelikes & online games |
-| Exploring | New places around Bali & beyond |
-| Food | New restaurants, or cooking at home |
+<p align="center">
+<a href="https://widya-yasa.vercel.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/footer-dark.svg?v=1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/footer-light.svg?v=1" />
+  <img alt="Join the party. I'm open. Got a project, collab idea, or just want to say hi? Let's build something intentional. Opens the portfolio." src="./assets/footer-light.svg?v=1" width="100%" />
+</picture>
+</a>
+</p>
 
----
-
-<div align="center">
-
-### `// JOIN_THE_PARTY`
-
-Got a project, collab idea, or just want to say hi?  
-**I'm open** — let's build something intentional.
-
-[🌐 Portfolio](https://widya-yasa.vercel.app) · [💼 LinkedIn](https://linkedin.com/in/widya-yasa) · [📸 Instagram](https://instagram.com/widya_yasaa)
-
-</div>
+<p align="center">
+  <a href="https://widya-yasa.vercel.app">Portfolio</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/widyasa">GitHub</a>
+  &nbsp;·&nbsp;
+  <a href="https://linkedin.com/in/widya-yasa">LinkedIn</a>
+  &nbsp;·&nbsp;
+  <a href="https://instagram.com/widya_yasaa">Instagram</a>
+</p>
